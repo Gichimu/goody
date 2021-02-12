@@ -6,16 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  showFiller = false;
+  open = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  toggleSidenav(event){
-    if(event){
-      
-    }
+  sidenavOpen(){
+    console.log("opened", this.open);
+    this.open = !this.open;
   }
 
 }
