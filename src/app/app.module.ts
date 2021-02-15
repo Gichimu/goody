@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
 import { AuthComponent } from './components/auth/auth.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AppFirebaseModule } from './app-firebase.module';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     AppMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppFirebaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

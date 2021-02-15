@@ -7,12 +7,15 @@
           <mat-card class="auth-card">
             <mat-card-content>
               <!-- login form -->
-              <form class="example-form">
+              <form class="example-form" (ngSubmit)="loginUser()">
                 <mat-form-field class="example-full-width">
                   <mat-label>Email</mat-label>
                   <input
                     type="email"
                     matInput
+                    name="email"
+                    [(ngModel)]="email"
+                    [errorStateMatcher]="matcher"
                     placeholder="Ex. pat@example.com"
                   />
                 </mat-form-field>
@@ -22,9 +25,14 @@
                   <input 
                   type="password" 
                   matInput 
+                  name="password"
+                  [(ngModel)]="password"
+                  [errorStateMatcher]="matcher"
                   placeholder="password" 
                   />
+                  <mat-error *ngIf="error">{{error}}</mat-error>  
                 </mat-form-field>
+                
                 <button class="login-button" mat-raised-button color="primary">
                   Sign In
                 </button>
@@ -37,12 +45,15 @@
           <mat-card>
             <mat-card-content>
               <!-- register form -->
-              <form class="example-form">
+              <form class="example-form" (ngSubmit)="createUser()">
                 <mat-form-field class="example-full-width">
                   <mat-label>Email</mat-label>
                   <input
                     type="email"
                     matInput
+                    name="email"
+                    [(ngModel)]="email"
+                    [errorStateMatcher]="matcher"
                     placeholder="Ex. pat@example.com"
                   />
                 </mat-form-field>
@@ -52,6 +63,9 @@
                   <input 
                   type="password" 
                   matInput 
+                  name="password"
+                  [(ngModel)]="password"
+                  [errorStateMatcher]="matcher" 
                   placeholder="password" 
                   />
                 </mat-form-field>

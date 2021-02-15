@@ -7,10 +7,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output() loggedOut = new EventEmitter<boolean>()
 
+  isLoggedOut: boolean
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  logOut() {
+    this.isLoggedOut = true
+    this.loggedOut.emit(this.isLoggedOut);
+  }
 }

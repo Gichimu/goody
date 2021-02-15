@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "goody-468e8": {
+      "hosting": {
+        "goody": [
+          "goody-468e8"
+        ]
+      }
+    }
+  }
+}
