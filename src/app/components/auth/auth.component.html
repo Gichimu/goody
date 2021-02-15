@@ -1,0 +1,69 @@
+<div class="auth">
+  <mat-card class="example-card"> 
+    <mat-card-title>Login/Register</mat-card-title>
+    <mat-card-content>
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Login">
+          <mat-card class="auth-card">
+            <mat-card-content>
+              <!-- login form -->
+              <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Email</mat-label>
+                  <input
+                    type="email"
+                    matInput
+                    placeholder="Ex. pat@example.com"
+                  />
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Password</mat-label>
+                  <input 
+                  type="password" 
+                  matInput 
+                  placeholder="password" 
+                  />
+                </mat-form-field>
+                <button class="login-button" mat-raised-button color="primary">
+                  Sign In
+                </button>
+              </form>
+              <!-- login form end -->
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+        <mat-tab label="Register">
+          <mat-card>
+            <mat-card-content>
+              <!-- register form -->
+              <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Email</mat-label>
+                  <input
+                    type="email"
+                    matInput
+                    placeholder="Ex. pat@example.com"
+                  />
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Password</mat-label>
+                  <input 
+                  type="password" 
+                  matInput 
+                  placeholder="password" 
+                  />
+                </mat-form-field>
+                <button class="login-button" mat-raised-button color="primary">
+                  Register
+                </button>
+              </form>
+              <!-- register form end -->
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

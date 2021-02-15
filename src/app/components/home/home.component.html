@@ -5,8 +5,8 @@
     <mat-drawer-container
       #drawer
       class="example-container"
-      (mouseenter)="sidenavOpen()"
-      (mouseleave)="sidenavOpen()"
+      (mouseenter)="drawer.open()"
+      (mouseleave)="drawer.close()"
       autosize
     >
       <mat-drawer class="example-sidenav" mode="side">
