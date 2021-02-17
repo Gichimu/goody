@@ -3,11 +3,38 @@
   height: 100%;
 }
 
+.profile-button {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.profile-image {
+
+}
+
+
+.menu-icon {
+  margin-right: 20px;
+}
+
+.side-menu {
+  margin-top: 5%;
+}
+
 .example-sidenav-content {
   display: flex;
   height: 100%;
-  align-items: center;
+  width: 180px;
+  align-items: flex-start;
   justify-content: center;
+}
+
+.sidenav-open {
+  width: 170px;
+}
+
+.sidenav-close {
+  width: 50px;
 }
 
 .example-sidenav {

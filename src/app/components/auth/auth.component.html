@@ -2,22 +2,29 @@
   <mat-card class="example-card"> 
     <mat-card-title>Login/Register</mat-card-title>
     <mat-card-content>
-      <mat-tab-group animationDuration="0ms">
+      <mat-tab-group animationDuration="0ms" mat-align-tabs="center">
         <mat-tab label="Login">
           <mat-card class="auth-card">
             <mat-card-content>
               <!-- login form -->
-              <form class="example-form" (ngSubmit)="loginUser()">
+              <form #loginForm class="example-form" (ngSubmit)="loginUser()">
                 <mat-form-field class="example-full-width">
                   <mat-label>Email</mat-label>
                   <input
                     type="email"
                     matInput
+                    [formControl]="emailFormControl"
                     name="email"
                     [(ngModel)]="email"
                     [errorStateMatcher]="matcher"
                     placeholder="Ex. pat@example.com"
                   />
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
@@ -25,14 +32,21 @@
                   <input 
                   type="password" 
                   matInput 
+                  [formControl]="passwordFormControl"
                   name="password"
                   [(ngModel)]="password"
                   [errorStateMatcher]="matcher"
                   placeholder="password" 
                   />
-                  <mat-error *ngIf="error">{{error}}</mat-error>  
-                </mat-form-field>
-                
+                  <mat-hint>Password must be at least 6 xters long</mat-hint>
+                  <mat-error *ngIf="passwordFormControl.hasError('required')">
+                    Password is <strong>required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="passwordFormControl.hasError('minLength')">
+                    Password must be at least 6 xters
+                  </mat-error>
+                </mat-form-field><br><br>
+                <mat-error *ngIf="error">{{error}}</mat-error> 
                 <button class="login-button" mat-raised-button color="primary">
                   Sign In
                 </button>
@@ -45,17 +59,43 @@
           <mat-card>
             <mat-card-content>
               <!-- register form -->
-              <form class="example-form" (ngSubmit)="createUser()">
+              <form #registerForm class="example-form" (ngSubmit)="createUser()">
                 <mat-form-field class="example-full-width">
                   <mat-label>Email</mat-label>
                   <input
                     type="email"
                     matInput
+                    [formControl]="emailFormControl"
                     name="email"
                     [(ngModel)]="email"
                     [errorStateMatcher]="matcher"
                     placeholder="Ex. pat@example.com"
                   />
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Username</mat-label>
+                  <input
+                    type="text"
+                    matInput
+                    [formControl]="usernameFormControl"
+                    name="username"
+                    [(ngModel)]="username"
+                    [errorStateMatcher]="matcher"
+                    placeholder="Street killa"
+                  />
+                  <mat-error *ngIf="usernameFormControl.hasError('required')">
+                    Username is <strong>required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="usernameFormControl.hasError('minLength(6)')">
+                    Username must be at least 6 xters long
+                  </mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
@@ -68,7 +108,9 @@
                   [errorStateMatcher]="matcher" 
                   placeholder="password" 
                   />
-                </mat-form-field>
+                  <mat-hint>Password must be at least 6 xters long</mat-hint>
+                </mat-form-field><br><br>
+                <mat-error *ngIf="error">{{error}}</mat-error>
                 <button class="login-button" mat-raised-button color="primary">
                   Register
                 </button>

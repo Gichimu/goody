@@ -7,14 +7,19 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>Goody</span>
-  <span class="example-spacer"></span>
-  
+  <span class="spacer"></span>
+  <small>{{user.username}}</small>
   <button
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with settings icon"
-    (click)="logOut()"
+    
+    [matMenuTriggerFor]="menu"
   >
-    <mat-icon>settings</mat-icon>
+    <mat-icon>account_circle</mat-icon>
   </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item><mat-icon>edit</mat-icon>Update profile</button>
+    <button mat-menu-item (click)="logOut()"><mat-icon>logout</mat-icon>logOut</button>
+  </mat-menu>
 </mat-toolbar>

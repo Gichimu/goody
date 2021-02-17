@@ -1,12 +1,17 @@
 <app-header (loggedOut)="logout()"></app-header>
 
 <mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened>
+  <mat-drawer
+    mode="side"
+    [class.sidenav-open]="open"
+    [class.sidenav-close]="!open"
+    opened
+  >
     <mat-drawer-container
       #drawer
       class="example-container"
-      (mouseenter)="drawer.open()"
-      (mouseleave)="drawer.close()"
+      (mouseenter)="sidenavToggle()"
+      (mouseleave)="sidenavToggle()"
       autosize
     >
       <mat-drawer class="example-sidenav" mode="side">
@@ -19,20 +24,29 @@
 
       <div class="example-sidenav-content">
         <span>
-          <button type="button" mat-button (click)="drawer.toggle()">
-            <mat-icon>dashboard</mat-icon> Dashboard
+          <button type="button" mat-button>
+            <mat-icon class="menu-icon">insert_emoticon</mat-icon>
+            {{ user.username }}
           </button>
           <mat-divider></mat-divider>
-          <button type="button" mat-button (click)="drawer.toggle()">
-            <mat-icon>login</mat-icon> Create new
-          </button>
-          <mat-divider></mat-divider>
-          <button type="button" mat-button (click)="drawer.toggle()">
-            <mat-icon>login</mat-icon> Exit
-          </button>
+          <div class="side-menu">
+            <button type="button" mat-button (click)="drawer.toggle()">
+              <mat-icon class="menu-icon">dashboard</mat-icon> Dashboard
+            </button>
+
+            <button type="button" mat-button (click)="drawer.toggle()">
+              <mat-icon class="menu-icon">person_add</mat-icon> Create new
+            </button>
+            <br />
+            <button type="button" mat-button (click)="drawer.toggle()">
+              <mat-icon class="menu-icon">login</mat-icon> Exit
+            </button>
+          </div>
         </span>
       </div>
     </mat-drawer-container>
   </mat-drawer>
-  <!-- <mat-drawer-content>Main content</mat-drawer-content> -->
+  <mat-drawer-content [ngStyle]="{ 'margin-left.px': contentMargin }">
+    Main content
+  </mat-drawer-content>
 </mat-drawer-container>
