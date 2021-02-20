@@ -1,6 +1,28 @@
 <app-header (loggedOut)="logout()"></app-header>
 
+
+
 <mat-drawer-container class="example-container">
+  <!-- search form -->
+  <div class="search-form">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Search</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"  
+               [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>  
+  <!-- search form -->
   <mat-drawer
     mode="side"
     [class.sidenav-open]="open"
@@ -47,6 +69,39 @@
     </mat-drawer-container>
   </mat-drawer>
   <mat-drawer-content [ngStyle]="{ 'margin-left.px': contentMargin }">
-    Main content
+    <div class="main-content">
+      <h2 class="text-center">Latest profiles</h2>
+      
+      <div class="inner-content" >
+        <mat-card class="example-card" *ngFor="let kid of kids">
+          <mat-card-header>
+            <div *ngIf="kid.photoUrl == null; else elseblock"></div>
+            <div mat-card-avatar class="example-header-image">
+              <img
+                class="kid-photo"
+                src="https://lh3.googleusercontent.com/proxy/sl330NuiHRdkdPhKBvHI8IlydA7ldzHZ3sfvJNypirCgyldLQNMI0H_qjn0dSRFLemW8RCr3Rb4CqXz54kjVUpMayJlaETfFH4AaeLs-MmfsaXjabg"
+                alt="kid photo"
+              />
+            </div>
+            <ng-template #elseblock>
+              <img mat-card-avatar class="kid-photo" src="" alt="kid photo" />
+            </ng-template>
+            <mat-card-title>{{ kid.name }}</mat-card-title>
+            <mat-card-subtitle>{{ kid.DOB }}</mat-card-subtitle>
+          </mat-card-header>
+          
+          <div class="divider"><hr /></div>
+          <mat-card-content>
+            <p>
+              A good kid.
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="divider"><hr /></div>
+      <div class="text-center">
+        <h2>Latest News</h2>
+      </div>
+    </div>
   </mat-drawer-content>
 </mat-drawer-container>
