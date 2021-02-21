@@ -28,6 +28,11 @@
   justify-content: center;
 }
 
+.example-sidenav-content a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .sidenav-open {
   width: 170px;
 }

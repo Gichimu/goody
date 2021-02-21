@@ -1,0 +1,79 @@
+<div class="content">
+  <h1 mat-dialog-title>Add a child</h1>
+  <div mat-dialog-content>
+    <mat-horizontal-stepper #stepper>
+      <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Personal details</ng-template>
+          <mat-form-field>
+            <mat-label>Full name</mat-label>
+            <input
+              matInput
+              placeholder="Last name, First name"
+              formControlName="firstCtrl"
+              required
+            />
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Date of birth</mat-label>
+            <input
+              matInput
+              [matDatepicker]="datepicker"
+              formControlName="dob"
+              required
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="datepicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+              <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDatepickerApply>
+                  Apply
+                </button>
+              </mat-datepicker-actions>
+            </mat-datepicker>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step
+        [stepControl]="secondFormGroup"
+        errorMessage="Address is required."
+      >
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Next of Kin</ng-template>
+          <mat-form-field>
+            <mat-label>Address</mat-label>
+            <input
+              matInput
+              placeholder="Ex. 1 Main St, New York, NY"
+              formControlName="secondCtrl"
+              required
+            />
+          </mat-form-field>
+          <div>
+            <p>Go to a different step to see the error state</p>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+</div>

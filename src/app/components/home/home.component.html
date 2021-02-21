@@ -1,28 +1,9 @@
-<app-header (loggedOut)="logout()"></app-header>
+<app-header (loggedOut)="logout()" (searchItem)="search($event)"></app-header>
 
 
 
 <mat-drawer-container class="example-container">
-  <!-- search form -->
-  <div class="search-form">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Search</mat-label>
-        <input type="text"
-               placeholder="Pick one"
-               aria-label="Number"
-               matInput
-               [formControl]="myControl"  
-               [matAutocomplete]="auto">
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    </form>
-  </div>  
-  <!-- search form -->
+  
   <mat-drawer
     mode="side"
     [class.sidenav-open]="open"
@@ -37,11 +18,7 @@
       autosize
     >
       <mat-drawer class="example-sidenav" mode="side">
-        <!-- <p>Auto-resizing sidenav</p>
-        <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-        <button (click)="showFiller = !showFiller" mat-raised-button>
-          Toggle extra text
-        </button> -->
+       
       </mat-drawer>
 
       <div class="example-sidenav-content">
@@ -56,7 +33,7 @@
               <mat-icon class="menu-icon">dashboard</mat-icon> Dashboard
             </button>
 
-            <button type="button" mat-button (click)="drawer.toggle()">
+            <button type="button" (click)="openDialog()" mat-button>
               <mat-icon class="menu-icon">person_add</mat-icon> Create new
             </button>
             <br />
@@ -105,3 +82,4 @@
     </div>
   </mat-drawer-content>
 </mat-drawer-container>
+

@@ -8,6 +8,22 @@
   </button>
   <span>Goody</span>
   <span class="spacer"></span>
+  <!-- search form -->
+  <div class="search-form">
+    <form class="example-form" (ngSubmit)="search()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Search</mat-label>
+        <input type="text"
+               aria-label="Search"
+               matInput
+               [formControl]="myControl"  
+               >
+        
+      </mat-form-field>
+    </form>
+  </div>  
+  <!-- search form -->
+  <span class="spacer"></span>
   <small>{{user.username}}</small>
   <button
     mat-icon-button

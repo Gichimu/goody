@@ -11,7 +11,7 @@ import { AppMaterialModule } from './app-material.module';
 import { AuthComponent } from './components/auth/auth.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppFirebaseModule } from './app-firebase.module';
-import { environment } from 'src/environments/environment';
+import { AddKidComponent } from './components/add-kid/add-kid.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { environment } from 'src/environments/environment';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    AuthComponent
+    AuthComponent,
+    AddKidComponent
   ],
   imports: [
     BrowserModule,
