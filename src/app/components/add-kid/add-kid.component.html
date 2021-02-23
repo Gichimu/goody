@@ -2,7 +2,10 @@
   <h1 mat-dialog-title>Add a child</h1>
   <div mat-dialog-content>
     <mat-horizontal-stepper #stepper>
-      <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+      <mat-step
+        [stepControl]="firstFormGroup"
+        errorMessage="Full name and dob are required."
+      >
         <form [formGroup]="firstFormGroup">
           <ng-template matStepLabel>Personal details</ng-template>
           <mat-form-field>
@@ -10,7 +13,7 @@
             <input
               matInput
               placeholder="Last name, First name"
-              formControlName="firstCtrl"
+              formControlName="name"
               required
             />
           </mat-form-field>
@@ -36,7 +39,7 @@
       </mat-step>
       <mat-step
         [stepControl]="secondFormGroup"
-        errorMessage="Address is required."
+        errorMessage="Both name and number are required."
       >
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Next of Kin</ng-template>
@@ -55,7 +58,7 @@
             <input
               matInput
               placeholder="+{254) - (700) - (000000)"
-              formControlName="nokname"
+              formControlName="noknumber"
               required
             />
           </mat-form-field>
@@ -65,12 +68,33 @@
           </div>
         </form>
       </mat-step>
+      <mat-step
+        [stepControl]="thirdFormGroup"
+        errorMessage="Image is required."
+      >
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Add image</ng-template>
+          <br />
+          <div>
+            <ngx-uploadcare-widget
+              images-only="true"
+              data-tabs="file url"
+              formControlName="kidphoto"
+              public-key="51514fae47ad7733b04a"
+            >
+            </ngx-uploadcare-widget>
+          </div>
+          <br />
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+            <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+          </div>
+        </form>
+      </mat-step>
       <mat-step>
-        <ng-template matStepLabel>Add image</ng-template>
-        <div>
-          <ngx-uploadcare-widget images-only="true" public-key="51514fae47ad7733b04a">
-          </ngx-uploadcare-widget>
-        </div>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>Done?</p>
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button (click)="stepper.reset()">Reset</button>
@@ -80,5 +104,7 @@
   </div>
   <div mat-dialog-actions>
     <button mat-button mat-dialog-close>Close</button>
+    <div class="spacer"></div>
+    <button mat-button mat-dialog-close (ngSubmit)="upload()">Done</button>
   </div>
 </div>
