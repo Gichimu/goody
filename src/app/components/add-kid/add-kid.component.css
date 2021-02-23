@@ -2,6 +2,7 @@
   margin-top: 16px;
 }
 
-.example-form-field {
-  margin-right: 20px;
+.content {
+  max-width: 800px;
+  max-height: 400px;
 }

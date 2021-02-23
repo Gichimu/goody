@@ -27,14 +27,7 @@
               matSuffix
               [for]="datepicker"
             ></mat-datepicker-toggle>
-            <mat-datepicker #datepicker>
-              <mat-datepicker-actions>
-                <button mat-button matDatepickerCancel>Cancel</button>
-                <button mat-raised-button color="primary" matDatepickerApply>
-                  Apply
-                </button>
-              </mat-datepicker-actions>
-            </mat-datepicker>
+            <mat-datepicker #datepicker> </mat-datepicker>
           </mat-form-field>
           <div>
             <button mat-button matStepperNext>Next</button>
@@ -48,24 +41,36 @@
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Next of Kin</ng-template>
           <mat-form-field>
-            <mat-label>Address</mat-label>
+            <mat-label>Full name</mat-label>
             <input
               matInput
-              placeholder="Ex. 1 Main St, New York, NY"
-              formControlName="secondCtrl"
+              placeholder="John Smith"
+              formControlName="nokname"
+              required
+            />
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Phone number</mat-label>
+            <input
+              matInput
+              placeholder="+{254) - (700) - (000000)"
+              formControlName="nokname"
               required
             />
           </mat-form-field>
           <div>
-            <p>Go to a different step to see the error state</p>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext>Next</button>
           </div>
         </form>
       </mat-step>
       <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
+        <ng-template matStepLabel>Add image</ng-template>
+        <div>
+          <ngx-uploadcare-widget images-only="true" public-key="51514fae47ad7733b04a">
+          </ngx-uploadcare-widget>
+        </div>
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button (click)="stepper.reset()">Reset</button>

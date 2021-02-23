@@ -12,6 +12,8 @@ import { AuthComponent } from './components/auth/auth.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppFirebaseModule } from './app-firebase.module';
 import { AddKidComponent } from './components/add-kid/add-kid.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { UcWidgetModule } from 'ngx-uploadcare-widget';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,10 @@ import { AddKidComponent } from './components/add-kid/add-kid.component';
     AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    AppFirebaseModule
+    AppFirebaseModule,
+    UcWidgetModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

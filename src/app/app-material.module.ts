@@ -18,6 +18,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -39,7 +40,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatAutocompleteModule,
     MatDialogModule,
     MatStepperModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule
+  ]
 })
 export class AppMaterialModule {}
