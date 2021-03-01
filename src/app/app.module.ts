@@ -14,6 +14,9 @@ import { AppFirebaseModule } from './app-firebase.module';
 import { AddKidComponent } from './components/add-kid/add-kid.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
+import { LandingComponent } from './components/landing/landing.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
     HeaderComponent,
     FooterComponent,
     AuthComponent,
-    AddKidComponent
+    AddKidComponent,
+    LandingComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -30,10 +35,12 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
     BrowserAnimationsModule,
     AppMaterialModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     AppFirebaseModule,
     UcWidgetModule
   ],
+  entryComponents: [LandingComponent, ProfileComponent],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })

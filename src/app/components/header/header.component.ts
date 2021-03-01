@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { User } from 'src/app/user';
 
@@ -15,7 +16,9 @@ export class HeaderComponent implements OnInit {
   myControl = new FormControl();
   isLoggedOut: boolean
   user: User;
-  constructor(private authservice: AuthService) { }
+  constructor(
+    private authservice: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.user = this.authservice.user
@@ -26,8 +29,8 @@ export class HeaderComponent implements OnInit {
     this.searchItem.emit(this.myControl.value);
   }
 
-  logOut() {
-    this.isLoggedOut = true
-    this.loggedOut.emit(this.isLoggedOut);
+  logout(): void {
+    this.authservice.logout();
+    this.router.navigate(['login']);
   }
 }
