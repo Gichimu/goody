@@ -1,6 +1,11 @@
-import { ThrowStmt } from "@angular/compiler";
+import { Url } from 'url';
 
 export class User {
-    username: string;
-    email: string
+  username: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  large: string;
+  medium: string;
+  thumbnail: string;
 }

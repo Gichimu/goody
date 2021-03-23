@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Kid } from 'src/app/kid';
+import { RandService } from 'src/app/services/rand/rand.service';
+import { User } from 'src/app/user';
 
 @Component({
   selector: 'app-profile',
@@ -8,9 +10,12 @@ import { Kid } from 'src/app/kid';
 })
 export class ProfileComponent implements OnInit {
   kids: Kid[] = []
-  constructor() { }
+  randUser: User = {} as User
+  constructor(private randservice: RandService) { }
 
   ngOnInit(): void {
+    this.randUser = this.randservice.randUser
+    console.log(this.randUser)
   }
 
 }

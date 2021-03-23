@@ -18,7 +18,7 @@ import { map } from 'rxjs/operators'
 })
 export class HomeComponent implements OnInit {
 
-  navigatedRoute = LandingComponent
+  navigatedRoute: any; 
   public dynamicComps = [
     {name: 'landing', component: LandingComponent},
     {name: 'profile', component: ProfileComponent}
@@ -26,8 +26,7 @@ export class HomeComponent implements OnInit {
   myControl = new FormControl();
   
   open = false;
-  user: User;
-
+  user: User; 
   
 
   contentMargin = 240;
@@ -40,17 +39,17 @@ export class HomeComponent implements OnInit {
     private active: ActivatedRoute,
     private dialog: MatDialog
     ) {}
-    rands: string[] = []
+    
   ngOnInit(): void {
     this.user = this.authService.user;
     this.authService.getUsername();
 
-    this.randservice.getUsers().subscribe(
-      (users: any) => this.rands = users
-    )
-
-    console.log(this.rands)
+    
+    this.randservice.getUsers()
+    console.log(this.randservice.randUser)
   }
+
+  
 
   openDialog(){
     this.dialog.open(AddKidComponent);

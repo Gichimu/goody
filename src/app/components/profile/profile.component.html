@@ -1,1 +1,17 @@
-<p>profile works!</p>
+<div class="profile-content">
+    <mat-card>
+        <!-- <mat-card-header>
+            <mat-card-title>profile</mat-card-title>
+        </mat-card-header> -->
+        
+        <mat-card-content class="inner-profile-content">
+            <div class="left">
+                <div><img src="{{randUser.large}}" class="img-thumbnail" alt=""></div>
+                <div><h3>{{randUser.firstName}} {{randUser.lastName}}</h3></div>
+                <div><small>{{randUser.email}}</small></div>
+            </div>
+            <div class="separator"></div>
+            <div class="right"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus ut corporis accusamus laborum totam illo eius repellendus fuga. Culpa accusantium nisi unde quas ipsam ipsum, totam modi facere enim explicabo, et, tempore deserunt sed assumenda officiis beatae omnis! Possimus eaque corrupti in voluptas nihil, corporis non provident facilis nobis vitae!</p></div>
+        </mat-card-content>
+    </mat-card>
+</div>
